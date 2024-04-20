@@ -6,8 +6,9 @@
     <title>{{ challenge.title }}</title>
 </head>
 <body>
-    <h1>{{ challenge.title }}</h1>
-    <strong>Level: {{ challenge.level }}</strong>
+<a href="/challenges/{{ challenge.id }}" ><img src="{{ url_for('static', filename=challenge.imageurl) }}" alt="Challenge Image" width="auto" height="60"></a>
+    <strong><h1>{{ challenge.title }}</h1></strong>
+    <span>Level: {{ challenge.level }}</span>
     <span>Points: {{ challenge.reward }}</span>
     <p>{{ challenge.description }}</p>
     <a href="/challenges">Back to Challenges</a>
