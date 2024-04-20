@@ -5,10 +5,14 @@
 
 {% block content %}
 <div style="padding: 20px;">
-    <h1>Challenges Page Content</h1>
-    <p>This is some additional content for the challenges page. You can add more paragraphs, images, or any other elements to make the page longer.</p>
-    <p>Scroll down to see more content.</p>
-    <!-- Add more content here -->
-    <img src="{{ url_for('static', filename='gachiplane.jpg') }}" alt="Example Image">
+    <h1>Challenges</h1>
+    <ul>
+        {% for challenge in challenges %}
+            <li>
+                <strong>{{ challenge.title }}</strong>
+                <p>{{ challenge.description }}</p>
+            </li>
+        {% endfor %}
+    </ul>
 </div>
 {% endblock %}
