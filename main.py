@@ -13,5 +13,9 @@ def challenges():
     return render_template("challenges.html")
 
 
+@app.route("/forums")
+def forums_page():
+    return render_template("forums.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
