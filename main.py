@@ -13,14 +13,9 @@ def challenges():
     return render_template("challenges.html")
 
 
-@app.route("/challenges")
-def challenges_page():
-    return "placeholder for challenges"
-
-
 @app.route("/forums")
 def forums_page():
-    return "placeholder for forums"
+    return render_template("forums.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
