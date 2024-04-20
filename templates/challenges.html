@@ -5,12 +5,12 @@
 
 {% block content %}
 <div style="padding: 20px;">
-    <h1>Challenges</h1>
-    <ul>
+    <h1 style="color: #FFF7A2;">Challenges</h1>
+    <ul style="color: #FFF7A2;">
         {% for challenge in challenges %}
             <li>
-                <strong>{{ challenge.title }}</strong>
-                <p>{{ challenge.description }}</p>
+                <strong style="color: #FFF7A2;">{{ challenge.title }}</strong>
+                <p style="color: #FFF7A2;">{{ challenge.description }}</p>
             </li>
         {% endfor %}
     </ul>
