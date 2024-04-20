@@ -4,34 +4,24 @@
 {% block title %}Challenges{% endblock %}
 
 {% block content %}
-<div style="padding: 20px;
+<h1 style="color: #FFF7A2;padding: 20px;
             list-style-type: none;
-            padding: 0;">
-<h1 style="color: #FFF7A2;">Challenges</h1>
+            padding: 0;">Challenges</h1>
     <ul style="color: #FFF7A2;">
-    <ul>
         {% for challenge in challenges %}
             <li>
             <form action="/challenges/{{ challenge.id }}" method="get">
                 <button type="submit">
-  <a href="/challenges/{{ challenge.id }}" ><img src="{{ url_for('static', filename=challenge.imageurl) }}" alt="Challenge Image" width="auto" height="60"></a>
+                    <a href="/challenges/{{ challenge.id }}" ><img src="{{ url_for('static', filename=challenge.imageurl) }}" alt="Challenge Image" width="auto" height="60"></a>
                     <strong style="color: #FFF7A2;">{{ challenge.title }}</strong>.
                     <span>{{ challenge.level }}</span>.
                     <span>Points: {{ challenge.reward }}</span>
                 </button>
                  <p style="color: #FFF7A2;">{{ challenge.description }}</p>
             </form>
-
-<div style="padding: 20px;">
-    <h1 style="color: #FFF7A2;">Challenges</h1>
-    <ul style="color: #FFF7A2;">
-        {% for challenge in challenges %}
-            <li>
-                <strong style="color: #FFF7A2;">{{ challenge.title }}</strong>
-                <p style="color: #FFF7A2;">{{ challenge.description }}</p>
-
             </li>
         {% endfor %}
     </ul>
-</div>
+
+
 {% endblock %}
