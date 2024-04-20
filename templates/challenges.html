@@ -9,8 +9,14 @@
     <ul>
         {% for challenge in challenges %}
             <li>
-                <strong>{{ challenge.title }}</strong>
+            <form action="/challenges/{{ challenge.id }}" method="get">
+                <button type="submit">
+                    <strong>{{ challenge.title }}</strong>.
+                    <span>{{ challenge.level }}</span>.
+                    <span>Points: {{ challenge.reward }}</span>
+                </button>
                 <p>{{ challenge.description }}</p>
+            </form>
             </li>
         {% endfor %}
     </ul>
