@@ -4,11 +4,24 @@
 {% block title %}Challenges{% endblock %}
 
 {% block content %}
-<div style="padding: 20px;">
-    <h1>Challenges Page Content</h1>
-    <p>This is some additional content for the challenges page. You can add more paragraphs, images, or any other elements to make the page longer.</p>
-    <p>Scroll down to see more content.</p>
-    <!-- Add more content here -->
-    <img src="{{ url_for('static', filename='gachiplane.jpg') }}" alt="Example Image">
+<div style="padding: 20px;
+            list-style-type: none;
+            padding: 0;">
+    <h1>Challenges</h1>
+    <ul>
+        {% for challenge in challenges %}
+            <li>
+            <form action="/challenges/{{ challenge.id }}" method="get">
+                <button type="submit">
+  <a href="/challenges/{{ challenge.id }}" ><img src="{{ url_for('static', filename=challenge.imageurl) }}" alt="Challenge Image" width="auto" height="60"></a>
+                    <strong>{{ challenge.title }}</strong>.
+                    <span>{{ challenge.level }}</span>.
+                    <span>Points: {{ challenge.reward }}</span>
+                </button>
+                <p>{{ challenge.description }}</p>
+            </form>
+            </li>
+        {% endfor %}
+    </ul>
 </div>
 {% endblock %}
