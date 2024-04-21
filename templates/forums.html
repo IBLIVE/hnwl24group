@@ -1,11 +1,43 @@
-<!-- forums.html -->
+
 {% extends "base.html" %}
 
-{% block title %}Forums{% endblock %}
+
+
+
 
 {% block content %}
-<div style="padding: 20px;">
-    <h1>forums content</h1>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/forums_styles.css') }}">
 
+</head>
+<div class="container">
+    <div class="sidebar">
+        <h3>Forums</h3>
+        <ul class = "catalog">
+<!--            templates of forum names-->
+            <li><a class = "catalog-item" href="#">Plane landing can't stop</a></li>
+            <li><a class = "catalog-item" href="#">Bug with problem #4</a></li>
+            <li><a class = "catalog-item" href="#">Can't outperform score of 900 at problem 2</a></li>
+            <li><a class = "catalog-item" href="#">what structure to use for problem 1</a></li>
+            <li><a class = "catalog-item" href="#">engine doesn't work. help</a></li>
+            <li><a class = "catalog-item" href="#">How to get better with hard problems</a></li>
+            <li><a class = "catalog-item" href="#">How to solve number 1</a></li>
+            <li><a class = "catalog-item" href="#">Why my structure is saying not stabilized</a></li>
+            <li><a class = "catalog-item" href="#">Attempted 120 times. Can't figure out what's wrong</a></li>
+            <li><a class = "catalog-item" href="#">My plane crashed.I am beginner what to do???</a></li>
+            <li><a class = "catalog-item" href="#">Which problems to start with</a></li>
+            <li><a class = "catalog-item" href="#">Should I instal Roblox Studio?</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <h1>Discussion</h1>
+        <form action="/submit-your-input" method="post">
+    <textarea id="myTextarea" name="message"></textarea>
+ <button><img  src="{{ url_for('static', filename='send_button.png') }}" alt="Send Button Image" ></button>
+        </form>
+    </div>
 </div>
+
 {% endblock %}
+
+

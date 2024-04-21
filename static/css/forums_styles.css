@@ -1,0 +1,60 @@
+form {
+    display: flex;
+    align-items: center; /* Aligns the items vertically in the center */
+    width: 70%;
+    position: absolute;
+    bottom: 0;
+}
+
+input[type="text"] {
+    margin-right: 10px; /* Adds space between the text input and the button */
+}
+
+button {
+    border: solid;
+    background: none; /* Removes the default button background */
+    border-radius : 20%;
+    padding: 0; /* Removes padding inside the button */
+    cursor: pointer; /* Changes cursor to pointer when hovering over the button */
+}
+
+button img {
+    width: 40px; /* Example size; adjust as needed */
+    height: auto; /* Maintains aspect ratio */
+}
+
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 250px;  /* Adjust width as needed */
+    background-color: #f4f4f4;
+    padding: 20px;
+    border: solid;
+}
+
+.main-content {
+    flex-grow: 1;  /* Take up the remaining space */
+    padding: 20px;
+    background-color: #fff;
+}
+.catalog {
+    list-style-type: none;
+}
+.catalog-item {
+    text-decoration: none;
+}
+#myTextarea {
+    width: 100%;       /* Makes the textarea span the full width of its container */
+    height: 50px;     /* Sets a fixed height to make it vertically long */
+    padding: 10px;     /* Adds some space inside the box around the text */
+    box-sizing: border-box; /* Ensures padding doesn't affect the final size */
+    border: 1px solid #ccc; /* Adds a subtle border */
+    border-radius: 4px; /* Optional: rounds the corners of the textarea */
+    resize: vertical;  /* Allows the user to vertically resize the textarea; remove or set to 'none' to disable resizing */
+    font-size: 16px;   /* Increases the font size for better readability */
+    background-color: #f8f8f8; /* Adds a background color */
+}

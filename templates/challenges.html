@@ -5,26 +5,35 @@
 
 {% block content %}
 
+
 <head>
     <link rel="stylesheet" type="text/css" href="/static/style.css">
 </head>
 <h1>Challenges</h1>
 <ul>
     {% for challenge in challenges %}
-    <li>
+    <li class="challenge-item">
         <button type="button" onclick="openModal('{{ challenge.id }}')">
             <a href="/challenges/{{ challenge.id }}" ><img class="challenge-image" src="{{ url_for('static', filename=challenge.imageurl) }}" alt="Challenge Image" width="auto" height="60"></a>
-            <strong>{{ challenge.title }}</strong>.
-            <span>{{ challenge.level }}</span>.
-            <span>Points: {{ challenge.reward }}</span>
+            <strong class="challenge-title">{{ challenge.title }}</strong>
+            <span class = "challenge-level">{{ challenge.level }}</span>
+            <span class="challenge-points">{{ challenge.reward }}</span>
         </button>
         <div id="modal-{{ challenge.id }}" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal('{{ challenge.id }}')">&times;</span>
-                <p>{{ challenge.description }}</p> <!-- Additional information -->
+
+                <a href="/challenges/{{ challenge.id }}" ><img class="challenge-image" src="{{ url_for('static', filename=challenge.imageurl) }}" alt="Challenge Image" width="auto" height="60"></a>
+            <strong class="challenge-title">{{ challenge.title }}</strong>
+            <span class = "">{{ challenge.level }}</span>
+            <span class="">{{ challenge.reward }}</span>
+                <p>{{ challenge.description | safe}}</p>
+                <button class="challenge-test">RUN</button>
             </div>
         </div>
     </li>
+
+
     {% endfor %}
 </ul>
 
