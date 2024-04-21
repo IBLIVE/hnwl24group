@@ -47,23 +47,74 @@
         object-fit: cover; /* Maintain aspect ratio and cover container */
         border-radius: 5px; /* Optional: Add rounded corners */
     }
+
+    /* Modal dialog styles */
+    .modal {
+        display: none; /* Hide the modal by default */
+        position: fixed; /* Position the modal relative to the viewport */
+        z-index: 1; /* Set z-index to appear above other elements */
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto; /* Enable scrolling if modal content exceeds viewport */
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    }
+
+    .modal-content {
+        background-color: #333; /* Set background color of modal content */
+        margin: 15% auto; /* Center modal vertically and horizontally */
+        padding: 20px;
+        border-radius: 5px;
+        width: 70%; /* Set width of modal content */
+        height: 70%;
+    }
+
+    .close {
+        color: #aaa; /* Set color of close button */
+        float: right; /* Float the close button to the right */
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black; /* Change color of close button on hover or focus */
+        text-decoration: none; /* Remove underline on hover */
+        cursor: pointer;
+    }
 </style>
 
 <h1>Challenges</h1>
 <ul>
     {% for challenge in challenges %}
     <li>
-        <form action="/challenges/{{ challenge.id }}" method="get">
-            <button type="submit">
-                <a href="/challenges/{{ challenge.id }}" ><img class="challenge-image" src="{{ url_for('static', filename=challenge.imageurl) }}" alt="Challenge Image" width="auto" height="60"></a>
-                <strong>{{ challenge.title }}</strong>.
-                <span>{{ challenge.level }}</span>.
-                <span>Points: {{ challenge.reward }}</span>
-            </button>
-            <p>{{ challenge.description }}</p>
-        </form>
+        <button type="button" onclick="openModal('{{ challenge.id }}')">
+            <a href="/challenges/{{ challenge.id }}" ><img class="challenge-image" src="{{ url_for('static', filename=challenge.imageurl) }}" alt="Challenge Image" width="auto" height="60"></a>
+            <strong>{{ challenge.title }}</strong>.
+            <span>{{ challenge.level }}</span>.
+            <span>Points: {{ challenge.reward }}</span>
+        </button>
+        <div id="modal-{{ challenge.id }}" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('{{ challenge.id }}')">&times;</span>
+                <p>{{ challenge.description }}</p> <!-- Additional information -->
+            </div>
+        </div>
     </li>
     {% endfor %}
 </ul>
+
+<script>
+    function openModal(challengeId) {
+        var modal = document.getElementById('modal-' + challengeId);
+        modal.style.display = 'block'; // Show modal
+    }
+
+    function closeModal(challengeId) {
+        var modal = document.getElementById('modal-' + challengeId);
+        modal.style.display = 'none'; // Hide modal
+    }
+</script>
 
 {% endblock %}
