@@ -4,15 +4,66 @@
 {% block title %}Challenges{% endblock %}
 
 {% block content %}
-<div style="padding: 20px;">
-    <h1 style="color: #FFF7A2;">Challenges</h1>
-    <ul style="color: #FFF7A2;">
-        {% for challenge in challenges %}
-            <li>
-                <strong style="color: #FFF7A2;">{{ challenge.title }}</strong>
-                <p style="color: #FFF7A2;">{{ challenge.description }}</p>
-            </li>
-        {% endfor %}
-    </ul>
-</div>
+<style>
+    body {
+        font-family: Arial, sans-serif; /* Set font family to Arial with fallback to sans-serif */
+        color: #FFF7A2; /* Set text color */
+    }
+
+    button {
+        font-size: 20px; /* Adjust font size as needed */
+    }
+
+    h1 {
+        padding: 20px;
+        list-style-type: none;
+        padding: 0;
+    }
+
+    ul {
+        padding: 0;
+    }
+
+    li {
+        list-style-type: none;
+    }
+
+    /* Additional styling for links and buttons */
+    a, button {
+        color: inherit; /* Inherit text color */
+        text-decoration: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    button:hover {
+        text-decoration: underline;
+    }
+
+    .challenge-image {
+        width: 60px; /* Set the width to create a square */
+        height: 60px; /* Set the height to match the width */
+        object-fit: cover; /* Maintain aspect ratio and cover container */
+        border-radius: 5px; /* Optional: Add rounded corners */
+    }
+</style>
+
+<h1>Challenges</h1>
+<ul>
+    {% for challenge in challenges %}
+    <li>
+        <form action="/challenges/{{ challenge.id }}" method="get">
+            <button type="submit">
+                <a href="/challenges/{{ challenge.id }}" ><img class="challenge-image" src="{{ url_for('static', filename=challenge.imageurl) }}" alt="Challenge Image" width="auto" height="60"></a>
+                <strong>{{ challenge.title }}</strong>.
+                <span>{{ challenge.level }}</span>.
+                <span>Points: {{ challenge.reward }}</span>
+            </button>
+            <p>{{ challenge.description }}</p>
+        </form>
+    </li>
+    {% endfor %}
+</ul>
+
 {% endblock %}
