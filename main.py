@@ -14,7 +14,7 @@ challenges_list = [
 
 @app.route("/")
 def main_page():
-    return render_template("base.html")
+    return render_template("main_page.html")
 
 
 @app.route("/challenges")

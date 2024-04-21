@@ -4,6 +4,66 @@
 {% block title %}Main Page{% endblock %}
 
 {% block content %}
-<h1>Main Page Content</h1>
+<style>
+    /* Additional style for the big label */
+
+    .background-container {
+        position: fixed; /* Fixed positioning to position it behind other content */
+        top: 60px; /* Position it below the higher bar */
+        left: 0; /* Position it at the left */
+        width: 100%; /* Take up the entire width */
+        height: calc(100% - 60px); /* Take up the remaining height, subtracting the height of the higher bar */
+        background-image: url('{{ url_for('static', filename='planepic.jpg') }}'); /* Set the background image */
+        background-size: cover; /* Cover the entire container */
+        background-position: center; /* Center the background image */
+        z-index: 0; /* Position it behind other content */
+        opacity: 0.5
+    }
+
+    .big-label {
+        font-size: 64px; /* Adjust font size as needed */
+        color: #FFF7A2; /* Set text color */
+        margin-bottom: 20px; /* Add space below the label */
+        text-align: center; /* Center align the text */
+        position: relative;
+        z-index: 999;
+    }
+
+    .sub-text {
+        font-size: 24px; /* Adjust font size as needed */
+        color: #FFF7A2; /* Set text color */
+        text-align: center; /* Center align the text */
+        position: relative;
+        z-index: 999;
+    }
+
+    .centered-text {
+        font-size: 20px; /* Adjust font size as needed */
+        line-height: 1.6;
+        color: #FFF7A2; /* Set text color */
+        text-align: center; /* Center align the text */
+        margin-top: 100px; /* Add space above the text */
+        margin-bottom: 60px; /* Add space below the text */
+        padding: 20px; /* Add padding for better readability */
+        position: relative; /* Set position to relative */
+        z-index: 1; /* Position it above the background container */
+        margin-left: 400px; /* Center the container horizontally */
+        margin-right: 400px; /* Center the container horizontally */
+    }
+</style>
+
+
+<div class="background-container"></div>
+<!-- Add the big label in the center -->
+<div class="big-label">GOVNOSYM</div>
+
+    <!-- Add the text beneath the big label -->
+<div class="sub-text">Explore the flight experience</div>
+
+<div class="centered-text">
+    Welcome to GOVNOSYM, your gateway to the skies!
+    Experience the thrill of flight simulation and embark on exhilarating journeys from the comfort of your home.
+    Whether you're a seasoned pilot or a novice adventurer, GOVNOSYM offers immersive flight experiences for everyone.
+</div>
 <!-- Add your main page content here -->
 {% endblock %}
